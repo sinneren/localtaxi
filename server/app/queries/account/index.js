@@ -22,7 +22,7 @@ const setUser = (app_req, app_res, db) => {
             console.log('Error Connecting:', db_err);
             return;
         } else {
-            app_res.status(201).json(db_res.rows[0].id);
+            app_res.status(201).json(db_res.rows[0].uuid);
         }
     });
 }
