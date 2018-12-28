@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Form, Columns } from "react-bulma-components/full";
+import { Button, Form, Columns, Heading } from "react-bulma-components/full";
+
+const PAGE_TITLE = 'Регистрация';
 
 class SignUp extends Component {
     state = {
@@ -17,32 +19,42 @@ class SignUp extends Component {
             [target.name]: target.value
         })
     }
+    componentDidMount() {
+        document.title = PAGE_TITLE;
+    }
     render() {
         return (
-            <Columns>
-                <Columns.Column>
-                    <Form.Input
-                        name="email"
-                        type="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                    />
-                </Columns.Column>
-                <Columns.Column>
-                    <Form.Input
-                        name="password"
-                        type="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
-                </Columns.Column>
-                <Columns.Column>
+            <>
+                <Columns>
+                    <Columns.Column>
+                        <Heading>{PAGE_TITLE}</Heading>
+                    </Columns.Column>
+                </Columns>
+                <Columns>
+                    <Columns.Column>
+                        <Form.Input
+                            name="email"
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                        />
+                    </Columns.Column>
+                    <Columns.Column>
+                        <Form.Input
+                            name="password"
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                    </Columns.Column>
+                    <Columns.Column>
                     <Button
                         color="primary"
                         onClick={this.handleSubmit}
                     >Register</Button>
                 </Columns.Column>
-            </Columns>
+                </Columns>
+            </>
         );
     }
 }

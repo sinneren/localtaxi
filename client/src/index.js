@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { ErrorBoundary } from './components/ErrorBoundary';
 import configStore from './store/configStore';
-import App from './App';
+import Main from './components/Main';
+import SignupCountainer from './containers/signup';
 import './index.css';
 
 import Layout from './templates/MainLayout';
@@ -16,7 +17,8 @@ ReactDOM.render(
             <BrowserRouter>
                 <Switch>
                     <Layout>
-                        <Route exact path="/" component={App} />
+                        <Route exact path="/" component={Main} />
+                        <Route exact path="/signup" component={SignupCountainer} />
                     </Layout>
                 </Switch>
             </BrowserRouter>
