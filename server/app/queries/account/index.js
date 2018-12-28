@@ -1,3 +1,5 @@
+import uuidv4 from 'uuid/v4';
+
 const getUserByID = (app_req, app_res, db) => {
     const text = 'SELECT * FROM account WHERE id = $1';
     const values = [app_req.params.id];
@@ -12,8 +14,8 @@ const getUserByID = (app_req, app_res, db) => {
     });
 }
 const setUser = (app_req, app_res, db) => {
-    const text = 'INSERT INTO account(name, password) VALUES($1, $2) RETURNING *';
-    const values = [app_req.body.name, app_req.body.password];
+    const text = 'INSERT INTO app_user(uuid, email, password_hash) VALUES($1, $2, $3) RETURNING *';
+    const values = [uuidv4(), app_req.body.email, app_req.body.password];
 
     db.query(text, values, (db_err, db_res) => {
         if (db_err) {

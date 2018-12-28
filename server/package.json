@@ -15,7 +15,8 @@
   "devDependencies": {
     "babel-register": "^6.26.0",
     "nodemon": "^1.18.9",
-    "pg": "^7.7.1"
+    "pg": "^7.7.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "nodemon -r babel-register server.js"
