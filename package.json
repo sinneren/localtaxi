@@ -5,7 +5,8 @@
     "description": "",
     "main": "index.js",
     "dependencies": {
-        "concurrently": "^4.1.0"
+        "concurrently": "^4.1.0",
+        "react-redux": "^6.0.0"
     },
     "scripts": {
         "install": "concurrently \"cd client && yarn\" \"cd server && yarn\"",
