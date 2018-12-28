@@ -3,6 +3,7 @@ import { actionTypes } from '../actionTypes';
 const initialState = {
     _id: null,
     userRequest: false,
+    errorMessage: '',
 }
 
 const signup = (state = initialState, action) => {
@@ -22,7 +23,6 @@ const signup = (state = initialState, action) => {
         case actionTypes.SIGNUP_FAIL:
             return {
                 ...state,
-                _id: null,
                 userRequest: action.payload.request,
                 errorMessage: action.payload.error_message,
             }
