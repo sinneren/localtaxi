@@ -1,5 +1,5 @@
 import { api_v } from '../../constants';
-const { getUserByID, setUser, deleteUserByID, updateUserByID } = require('../queries/account/');
+const { getUserByID, getUserByLogin, setUser, deleteUserByID, updateUserByID } = require('../queries/account/');
 
 module.exports = function (app, db) {
     app.get(api_v + '/account/:id', (app_req, app_res) => {
@@ -13,5 +13,8 @@ module.exports = function (app, db) {
     });
     app.post(api_v + '/account', (app_req, app_res) => {
         setUser(app_req, app_res, db);
+    });
+    app.get(api_v + '/account', (app_req, app_res) => {
+        getUserByLogin(app_req, app_res, db);
     });
 };

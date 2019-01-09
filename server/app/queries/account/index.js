@@ -13,6 +13,22 @@ const getUserByID = (app_req, app_res, db) => {
         }
     });
 }
+const getUserByLogin = (app_req, app_res, db) => {
+    const text = 'SELECT * FROM app_user WHERE email = $1 AND password_hash = $2';
+    const values = [app_req.query.email, app_req.query.password];
+    db.query(text, values, (db_err, db_res) => {
+        if (db_err) {
+            console.log('Error Connecting:', db_err);
+            return;
+        } else {
+            if (db_res.rowCount === 1) {
+                app_res.status(200).json(db_res.rows[0]);
+            } else {
+                app_res.status(200).json({uuid: null});
+            }
+        }
+    });
+}
 const setUser = (app_req, app_res, db) => {
     const text = 'INSERT INTO app_user(uuid, email, password_hash) VALUES($1, $2, $3) RETURNING *';
     const values = [uuidv4(), app_req.body.email, app_req.body.password];
@@ -55,6 +71,7 @@ const updateUserByID = (app_req, app_res, db) => {
 
 module.exports = {
     getUserByID,
+    getUserByLogin,
     setUser,
     deleteUserByID,
     updateUserByID,

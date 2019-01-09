@@ -6,23 +6,30 @@ const initialState = {
     errorMessage: '',
 }
 
-const signup = (state = initialState, action) => {
+const signin = (state = initialState, action) => {
 
     switch(action.type) {
-        case actionTypes.SIGNUP_REQUEST:
+        case actionTypes.SIGNIN_REQUEST:
             return {
                 ...state,
                 userRequest: action.payload.request,
             }
-        case actionTypes.SIGNUP_SUCCESS:
+        case actionTypes.SIGNIN_SUCCESS:
             return {
                 ...state,
                 _id: action.payload._id,
                 userRequest: action.payload.request,
             }
-        case actionTypes.SIGNUP_FAIL:
+        case actionTypes.SIGNIN_FAIL:
             return {
                 ...state,
+                userRequest: action.payload.request,
+                errorMessage: action.payload.error_message,
+            }
+        case actionTypes.SIGNIN_WRONG_DATA:
+            return {
+                ...state,
+                _id: action.payload._id,
                 userRequest: action.payload.request,
                 errorMessage: action.payload.error_message,
             }
@@ -30,4 +37,4 @@ const signup = (state = initialState, action) => {
             return state
     }
 }
-export default signup;
+export default signin;

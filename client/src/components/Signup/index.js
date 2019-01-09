@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Columns, Heading } from "react-bulma-components/full";
 
-const PAGE_TITLE = 'Регистрация';
 
 class SignUp extends Component {
     state = {
@@ -10,7 +9,7 @@ class SignUp extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.actions.signupRequest(this.state);
+        this.props.actions.formRequest(this.state);
     }
     handleChange = (event) => {
         const target = event.currentTarget;
@@ -20,14 +19,14 @@ class SignUp extends Component {
         })
     }
     componentDidMount() {
-        document.title = PAGE_TITLE;
+        document.title = this.props.pageTitle;
     }
     render() {
         return (
             <>
                 <Columns>
                     <Columns.Column>
-                        <Heading>{PAGE_TITLE}</Heading>
+                        <Heading>{this.props.pageTitle}</Heading>
                     </Columns.Column>
                 </Columns>
                 <Columns>

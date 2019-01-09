@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { formRequest } from '../../store/reducers/signup/actions';
+import { formRequest } from '../../store/reducers/signin/actions';
 import SignUp from '../../components/Signup';
 
-class SignupContainer extends Component {
+class SigninContainer extends Component {
     render() {
         return (
-            <SignUp {...this.props} pageTitle="Регистрация" />
+            <SignUp {...this.props} pageTitle="Вход" />
         )
     }
 }
@@ -19,8 +19,8 @@ function mapDispatchToProps (dispatch) {
 };
 function mapStateToProps (state) {
     return {
-        state: state.signup
+        state: state.signin
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SigninContainer);

@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-import { actionTypes } from '../actionTypes';
+import { actionTypes } from './actionTypes';
 import { api_url } from '../../../constants';
 
 axios.defaults.baseURL = api_url;
 
-export const signupRequest = (data) => {
+export const formRequest = (data) => {
     return dispatch => {
         dispatch({
             type: actionTypes.SIGNUP_REQUEST,

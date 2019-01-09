@@ -12,6 +12,7 @@ export default class Header extends Component {
                     <Navbar.Container>
                         <Link to="/" className="navbar-item">Главная</Link>
                         <Link to="/signup" className="navbar-item">Регистрация</Link>
+                        <Link to="/signin" className="navbar-item">Вход</Link>
                     </Navbar.Container>
                 </Navbar.Menu>
             </Navbar>

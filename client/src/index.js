@@ -7,6 +7,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import configStore from './store/configStore';
 import Main from './components/Main';
 import SignupCountainer from './containers/signup';
+import SigninCountainer from './containers/signin';
 import './index.css';
 
 import Layout from './templates/MainLayout';
@@ -19,6 +20,7 @@ ReactDOM.render(
                     <Layout>
                         <Route exact path="/" component={Main} />
                         <Route exact path="/signup" component={SignupCountainer} />
+                        <Route exact path="/signin" component={SigninCountainer} />
                     </Layout>
                 </Switch>
             </BrowserRouter>
