@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Columns, Heading } from "react-bulma-components/full";
+import { Redirect } from "react-router-dom";
 
 class SignUp extends Component {
     state = {
@@ -22,6 +23,9 @@ class SignUp extends Component {
         document.title = this.props.pageTitle;
     }
     render() {
+        if (this.props.state._id) {
+            return <Redirect push to="/" />
+        }
         return (
             <>
                 <Columns>
@@ -51,7 +55,7 @@ class SignUp extends Component {
                         color="primary"
                         onClick={this.handleSubmit}
                         >{this.props.pageTitle}</Button>
-                </Columns.Column>
+                    </Columns.Column>
                 </Columns>
             </>
         );

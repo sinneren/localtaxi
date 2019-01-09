@@ -1,4 +1,5 @@
 import axios from 'axios';
+import cookies from 'browser-cookies';
 
 import { actionTypes } from './actionTypes';
 import { api_url } from '../../../constants';
@@ -28,6 +29,7 @@ export const formRequest = (data) => {
                             _id: res.data.uuid,
                         }
                     });
+                    cookies.set('uid', res.data.uuid, { expires: 1 });
                 } else {
                     dispatch({
                         type: actionTypes.SIGNIN_WRONG_DATA,
