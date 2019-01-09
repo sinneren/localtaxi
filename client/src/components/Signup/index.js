@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Columns, Heading } from "react-bulma-components/full";
 
-
 class SignUp extends Component {
     state = {
         email: '',
@@ -9,6 +8,7 @@ class SignUp extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
+
         this.props.actions.formRequest(this.state);
     }
     handleChange = (event) => {
@@ -50,7 +50,7 @@ class SignUp extends Component {
                     <Button
                         color="primary"
                         onClick={this.handleSubmit}
-                    >Register</Button>
+                        >{this.props.pageTitle}</Button>
                 </Columns.Column>
                 </Columns>
             </>

@@ -6,6 +6,7 @@
     "main": "index.js",
     "dependencies": {
         "concurrently": "^4.1.0",
+        "password-hash": "^1.2.2",
         "react-redux": "^6.0.0"
     },
     "scripts": {
