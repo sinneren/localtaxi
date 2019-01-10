@@ -2,7 +2,7 @@ import uuidv4 from 'uuid/v4';
 import pswhash from 'password-hash';
 
 const getUserByID = (app_req, app_res, db) => {
-    const text = 'SELECT * FROM app_user WHERE id = $1';
+    const text = 'SELECT uuid, email FROM app_user WHERE uuid = $1';
     const values = [app_req.params.id];
 
     db.query(text, values, (db_err, db_res) => {
