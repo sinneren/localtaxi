@@ -6,9 +6,12 @@ import { formRequest } from '../../store/reducers/signin/actions';
 import SignUp from '../../components/Signup';
 
 class SigninContainer extends Component {
+    componentDidMount() {
+        document.title = this.props.title;
+    }
     render() {
         return (
-            <SignUp {...this.props} pageTitle="Вход" />
+            <SignUp {...this.props} />
         )
     }
 }

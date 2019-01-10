@@ -5,10 +5,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { ErrorBoundary } from './components/ErrorBoundary';
 import configStore from './store/configStore';
-import Main from './components/Main';
-import SignupCountainer from './containers/signup';
-import SigninCountainer from './containers/signin';
+
 import './index.css';
+import routes from './routes';
 
 import Layout from './templates/MainLayout';
 
@@ -18,9 +17,14 @@ ReactDOM.render(
             <BrowserRouter>
                 <Switch>
                     <Layout>
-                        <Route exact path="/" component={Main} />
-                        <Route exact path="/signup" component={SignupCountainer} />
-                        <Route exact path="/signin" component={SigninCountainer} />
+                        {routes.map((item, index) => {
+                            return <Route
+                                key={index}
+                                exact
+                                path={item.url}
+                                render={(props) => <item.component {...props} title={item.title} />}
+                            />
+                        })}
                     </Layout>
                 </Switch>
             </BrowserRouter>

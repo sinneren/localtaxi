@@ -19,9 +19,6 @@ class SignUp extends Component {
             [target.name]: target.value
         })
     }
-    componentDidMount() {
-        document.title = this.props.pageTitle;
-    }
     render() {
         if (this.props.state._id) {
             return <Redirect push to="/" />
@@ -30,7 +27,7 @@ class SignUp extends Component {
             <>
                 <Columns>
                     <Columns.Column>
-                        <Heading>{this.props.pageTitle}</Heading>
+                        <Heading>{this.props.title}</Heading>
                     </Columns.Column>
                 </Columns>
                 <Columns>
@@ -54,7 +51,7 @@ class SignUp extends Component {
                     <Button
                         color="primary"
                         onClick={this.handleSubmit}
-                        >{this.props.pageTitle}</Button>
+                        >{this.props.title}</Button>
                     </Columns.Column>
                 </Columns>
             </>
